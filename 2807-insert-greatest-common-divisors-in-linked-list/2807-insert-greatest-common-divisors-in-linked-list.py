@@ -31,15 +31,9 @@ class Solution:
         '''
         Takes two integers and returns the greates commin divisor
         '''
-        if a > b:
+        while b != 0:
             c = a % b
-            if c == 0:
-                c = b
-        elif a < b:
-            c = b % a
-            if c == 0:
-                c = a
-        else:
-            c = a
-        return c
+            a = b
+            b = c
+        return a
 
