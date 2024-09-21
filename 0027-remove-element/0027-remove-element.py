@@ -5,9 +5,6 @@ class Solution:
         
         for n in reversed(range(len(nums))):
             if nums[n] == val:
-                idx.append(n)
-        
-        for i in idx:
-            nums.pop(i)
-        
+                nums.pop(n)
+
         return len(nums)
