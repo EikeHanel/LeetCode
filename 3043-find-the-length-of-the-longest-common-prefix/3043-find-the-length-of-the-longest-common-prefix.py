@@ -1,14 +1,17 @@
 class Solution:
     def longestCommonPrefix(self, arr1: List[int], arr2: List[int]) -> int:
-        def dfs(i, j, count):
-            curr_count = 0
-            for n in range(len(arr1)):
-                for k in range(len(arr2)):
-                    if str(arr1[n])[i:j] == str(arr2[k])[i:j]:
-                        curr_count = max(count, j)
-                        print(f"IF count: {curr_count}")
-                        return dfs(i, j+1, curr_count)
-            print(f"END count: {curr_count}")
-            return max(curr_count, j-1)
-
-        return dfs(0, 1, 0)
+        if len(arr1) > len(arr2):
+            arr1, arr2 = arr2, arr1
+        prefix_set = set() 
+        for n in arr1:
+            while n:
+                prefix_set.add(n)
+                n = n // 10
+        ans = 0
+        for k in arr2:
+            while k and k not in prefix_set:
+                k = k // 10
+            if k:
+                ans = max(ans, len(str(k)))
+        return ans
+        
