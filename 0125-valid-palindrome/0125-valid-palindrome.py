@@ -10,9 +10,6 @@ class Solution:
         if s == "" or s == " ":
             return True
 
-        pal = "".join(s).translate(str.maketrans("", "", "".join(non_aphanumeric))).lower()
+        new_string = "".join(s).translate(str.maketrans("", "", "".join(non_aphanumeric))).lower()
 
-        if pal == pal[::-1]:
-            return True
-        else:
-            return False
+        return new_string == new_string[::-1]
