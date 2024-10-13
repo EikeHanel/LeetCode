@@ -3,7 +3,7 @@ class Solution:
         ROWS, COLS = len(matrix), len(matrix[0])
 
         top, bot = 0, ROWS - 1
-        idx = 0
+        target_row = 0
         while top <= bot:
             mid_row = (top + bot) // 2
             if target > matrix[mid_row][-1]:
