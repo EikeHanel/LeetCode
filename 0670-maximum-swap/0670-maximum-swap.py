@@ -18,5 +18,4 @@ class Solution:
                     ans += str(n)
                 return int(ans)
             l += 1
-
         return num      
