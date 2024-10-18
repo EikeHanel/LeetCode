@@ -1,18 +1,30 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        if len(s) == 0:
-            return 0
-        test = s[0]
-        count = 1
-        for i in range(1, len(s)):
-            if s[i] in test:
-                test = test[test.index(s[i])+1:] + s[i]
-            else:
-                test += s[i]
-            if count < len(test):
-                count = len(test)
-        return count
+        # Two Pointer Solution
+        substring = set()
+        res = 0
+        l = 0
+        for r in range(len(s)):
+            while s[r] in substring:
+                substring.remove(s[l])
+                l += 1
+            substring.add(s[r])
+            res = max(res, r - l + 1)
+        return res
 
+        # # Second Solution
+        # if len(s) == 0:
+        #     return 0
+        # test = s[0]
+        # count = 1
+        # for i in range(1, len(s)):
+        #     if s[i] in test:
+        #         test = test[test.index(s[i])+1:] + s[i]
+        #     else:
+        #         test += s[i]
+        #     if count < len(test):
+        #         count = len(test)
+        # return count
 
         # # First Attempt found easier solution while coding
 
