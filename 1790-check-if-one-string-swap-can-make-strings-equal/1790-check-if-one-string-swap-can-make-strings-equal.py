@@ -6,6 +6,8 @@ class Solution:
                 continue
             else:
                 check.append((c, s2[i]))
+            if len(check) > 2:
+                return False
         if (len(check) == 2 and check[0][0] == check[1][1] and check[0][1] == check[1][0]) or not check:
             return True
         else:
