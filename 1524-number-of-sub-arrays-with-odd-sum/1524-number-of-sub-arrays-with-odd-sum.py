@@ -4,8 +4,8 @@ class Solution:
         odd = 0
         even = 0
         res = 0
-        for i in range(len(arr)):
-            cur_sum += arr[i]
+        for n in arr:
+            cur_sum += n
             if cur_sum % 2 != 0:
                 if even != 0:
                     res += even
@@ -15,4 +15,4 @@ class Solution:
                 if odd != 0:
                     res += odd
                 even += 1
-        return res % (10 ** 9 +7)
+        return res % (10 ** 9 + 7)
