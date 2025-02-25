@@ -15,4 +15,4 @@ class Solution:
                 if odd != 0:
                     res += odd
                 even += 1
-        return res
+        return res % (10 ** 9 +7)
